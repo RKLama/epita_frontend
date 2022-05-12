@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Red Rectangle</title>
+    <link rel="stylesheet" href="css/main.css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.rectangle {
 
-width:200px;
-height:100px;
-background-color:#ff0000;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-
-}
 </style>
 </head>
 <body>
 
 <!-- <h2>Rectangle</h2> -->
-<div class="rectangle"></div>
+<div class="redsquare" id="square"></div>
+<script type="text/javascript">
+    document.getElementById("square").onclick = function() {
+        // document.getElementById("square").style.display = "none";
+        if (square.style.display == "none") {
+            square.style.display = "block"; 
+        } else {
+            square.style.display = "none";
+        }
+    }
 
+</script>
+</script>
 </body>
 </html> 
