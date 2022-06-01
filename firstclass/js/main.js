@@ -45,42 +45,51 @@ const cells = document.querySelectorAll('.griditem')
 cells.forEach(griditem => {
     // console.log(cell)
     griditem.addEventListener('click', (e) => {
-        console.log(e.target.innerHTML)
-        if(e.target.innerHTML == '') {
+        // console.log(e.target.innerHTML)
+        if(!winner){
+            if(e.target.innerHTML == '') {
 
-            if(winner == false){
-                e.target.innerHTML = elements[current_player]
-            }
-            else{
-                e.target.innerHTML = null
-            }
+                if(winner == false){
+                    e.target.innerHTML = elements[current_player]
+                }
+                else{
+                    e.target.innerHTML = null
+                }
 
-            if(validationLine(a1, a2, a3) || validationLine(b1, b2, b3) || validationLine(c1, c2, c3) || validationLine(a1, b1, c1) || validationLine(a2, b2, c2) || validationLine(a3, b3, c3) || validationLine(a1, b2, c3) ||  validationLine(a3, b2, c1)) {   
+                if(validationLine(a1, a2, a3) || validationLine(b1, b2, b3) || validationLine(c1, c2, c3) || validationLine(a1, b1, c1) || validationLine(a2, b2, c2) || validationLine(a3, b3, c3) || validationLine(a1, b2, c3) ||  validationLine(a3, b2, c1)) {   
                     console.log('winner!')
                     winner = true
-            }
+                }
 
-            if(winner) {
-                let msg = document.querySelector('#msg')
-                msg.innerHTML = 'The winner is Player ' + (current_player+1) 
-            }
+                if(winner) {
+                    let msg = document.querySelector('#msg')
+                    msg.innerHTML = 'The winner is Player ' + (current_player+1) 
 
-            // Switch of players
-            if(winner==false) {
-                if(current_player == 0) {
-                    current_player = 1
-                } else {
-                    current_player = 0
+                    let score = parseInt(document.querySelector('#player'+(current_player+1)+' .score').innerHTML)
+                    score++
+                    document.querySelector('#player'+(current_player+1)+' .score').innerHTML = score
+
+        
+                }
+
+                // Switch of players
+                if(winner==false) {
+                    if(current_player == 0) {
+                        current_player = 1
+                    } else {
+                        current_player = 0
+                    }
                 }
             }
         }else {
-            alert ('Someone already play here')
+            alert ('Someone already played here')
         }
         
     })
 })
 
-function reset_game() {
+function reset() {
+    // let msg = document.querySelector('#msg')
     location.reload();
     document.getElementById('a1').value = '';
     document.getElementById("a2").value = '';
@@ -91,5 +100,6 @@ function reset_game() {
     document.getElementById("c1").value = '';
     document.getElementById("c2").value = '';
     document.getElementById("c3").value = '';
+    // msg.style.display="none";
  
 }
