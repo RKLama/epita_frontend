@@ -15,20 +15,26 @@
             <div class="image">
                 <img src="https://images.pexels.com/photos/5206261/pexels-photo-5206261.jpeg" alt="Player One Pic"/>
             </div>
-            <div class="name">Player 1</div>
-            <div class="score">0</div>
+            <div id="player_one_name" class="player_one_name">Player 1</div>
+            <div id="player_one_score" class="player_one_score">0</div>
         </div>
         <div id="player2" class="player">
             <div class="image">
                 <img src="https://images.pexels.com/photos/8375911/pexels-photo-8375911.jpeg" alt="Player Two Pic"/>
             </div>
-            <div class="name">Player 2</div>
-            <div class="score">0</div>
+            <div id="player_two_name" class="name">Player 2</div>
+            <div id="player_two_score" class="score">0</div>
         </div>
     </div>
 
     <!-- <h1>Tic Tac Toe</h1> -->
-    <p></p>
+    <!-- <p></p> -->
+    <div id="msg"></div>
+
+    <button id="but" onclick="reset_game()">
+        RESET
+    </button>
+
     <div class="grid">
         <div id="a1" class="griditem"></div>
         <div id="a2" class="griditem"></div>

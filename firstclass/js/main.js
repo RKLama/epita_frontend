@@ -15,13 +15,25 @@ const c3 = document.querySelector('#c3')
 // })
 
 let current_player = 0
+let winner = false
 const elements = ['X','O']
 
 const validationLine = (el1, el2, el3) => {
     let valid = false
-    console.log(el1.innerHTML)
+    // console.log(el1.innerHTML)
 
-    if (el1.innerHTML != '' && el2.innerHTML != '' && el3.innerHTML != '') {
+    // if (el1.innerHTML != '' && el2.innerHTML != '' && el3.innerHTML != '') {
+    //     console.log('valid')
+    //     valid = true
+    // }
+
+    if (el1.innerHTML == elements[1] && el2.innerHTML == elements[1] &&  el3.innerHTML == elements[1]) {
+        console.log('valid')
+        valid = true
+    }
+
+    if (el1.innerHTML == elements[0] && el2.innerHTML == elements[0] &&  el3.innerHTML == elements[0]) {
+        console.log('valid')
         valid = true
     }
 
@@ -35,16 +47,31 @@ cells.forEach(griditem => {
     griditem.addEventListener('click', (e) => {
         console.log(e.target.innerHTML)
         if(e.target.innerHTML == '') {
-            e.target.innerHTML = elements[current_player]
 
-            if(validationLine(a1, a2, a3)) {
-                console.log('winner!')
+            if(winner == false){
+                e.target.innerHTML = elements[current_player]
+            }
+            else{
+                e.target.innerHTML = null
             }
 
-            if(current_player == 0) {
-                current_player = 1
-            } else {
-                current_player = 0
+            if(validationLine(a1, a2, a3) || validationLine(b1, b2, b3) || validationLine(c1, c2, c3) || validationLine(a1, b1, c1) || validationLine(a2, b2, c2) || validationLine(a3, b3, c3) || validationLine(a1, b2, c3) ||  validationLine(a3, b2, c1)) {   
+                    console.log('winner!')
+                    winner = true
+            }
+
+            if(winner) {
+                let msg = document.querySelector('#msg')
+                msg.innerHTML = 'The winner is Player ' + (current_player+1) 
+            }
+
+            // Switch of players
+            if(winner==false) {
+                if(current_player == 0) {
+                    current_player = 1
+                } else {
+                    current_player = 0
+                }
             }
         }else {
             alert ('Someone already play here')
@@ -52,3 +79,17 @@ cells.forEach(griditem => {
         
     })
 })
+
+function reset_game() {
+    location.reload();
+    document.getElementById('a1').value = '';
+    document.getElementById("a2").value = '';
+    document.getElementById("a3").value = '';
+    document.getElementById("b1").value = '';
+    document.getElementById("b2").value = '';
+    document.getElementById("b3").value = '';
+    document.getElementById("c1").value = '';
+    document.getElementById("c2").value = '';
+    document.getElementById("c3").value = '';
+ 
+}
