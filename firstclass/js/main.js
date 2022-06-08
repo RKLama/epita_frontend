@@ -64,7 +64,8 @@ cells.forEach(griditem => {
                 if(winner) {
                     let msg = document.querySelector('#msg')
                     msg.innerHTML = 'The winner is Player ' + (current_player+1) 
-
+                    msg.style.display="block";
+                    
                     let score = parseInt(document.querySelector('#player'+(current_player+1)+' .score').innerHTML)
                     score++
                     document.querySelector('#player'+(current_player+1)+' .score').innerHTML = score
