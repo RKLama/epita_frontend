@@ -1,12 +1,30 @@
 @import "_var.scss";
 @import "_nav.scss";
+@import "_jokes.scss";
+@import "_form.scss";
 
-$with-container: '80%';
-$primary-color: aqua;
-$secondary-color: brown;
+// $with-container: '80%';
+// $primary-color: aqua;
+// $secondary-color: brown;
 
-body{
+// body{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+// }
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    margin: 50px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: $with-container;
+    margin: 20px auto;
 }

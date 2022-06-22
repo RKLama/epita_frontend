@@ -1,16 +1,16 @@
-// #nav {
-//     background-color: $primary-color;
-//     display: flex;
+#nav {
+    background-color: $primary-color;
+    display: flex;
 
-//     a {
-//         text-decoration: none;
-//         padding: 10px;
-//         display: block;
-//         color: $secondary-color;
+    a {
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        color: $secondary-color;
 
-//         &:hover {
-//             background-color: $secondary-color;
-//             color: $primary-color;
-//         }
-//     }
-// }
+        &:hover {
+            background-color: $secondary-color;
+            color: $primary-color;
+        }
+    }
+}
